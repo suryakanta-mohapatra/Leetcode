@@ -1,5 +1,6 @@
 package com.surya.Page1;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class ProblemSet1 {
@@ -25,7 +26,10 @@ public class ProblemSet1 {
 	        return result;
 	    }
 	public static void main(String[] args) {
-		
+		int[] testArray = {2,5,7,14};
+		int target =9;
+		int[] result  = new ProblemSet1().twoSum(testArray, target);
+		System.out.println(Arrays.toString(result));
 
 	}
 
