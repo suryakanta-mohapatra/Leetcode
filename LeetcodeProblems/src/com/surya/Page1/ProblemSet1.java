@@ -5,10 +5,11 @@ import java.util.HashMap;
 
 public class ProblemSet1 {
 
-	/*Given an array of integers, return indices of the two numbers such that they add 
-	 * up to a specific target.You may assume that each input would have exactly one 
-	 * solution, and you may not use the same element twice*/
-	
+	/*
+	 * Given an array of integers, return indices of the two numbers such that they add up to a specific 
+	 * target.You may assume that each input would have exactly one solution, and you may not use the 
+	 * same element twice
+	 */
 	 public int[] twoSum(int[] nums, int target) {
 	        int[] result = new int[2];
 	        int len = nums.length;
