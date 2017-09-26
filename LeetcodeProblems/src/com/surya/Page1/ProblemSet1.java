@@ -1,6 +1,5 @@
 package com.surya.Page1;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class ProblemSet1 {
