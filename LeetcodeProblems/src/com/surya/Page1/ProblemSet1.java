@@ -1,10 +1,11 @@
 package com.surya.Page1;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class ProblemSet1 {
 
-	/*
+	/**
 	 * Given an array of integers, return indices of the two numbers such that they add up to a specific 
 	 * target.You may assume that each input would have exactly one solution, and you may not use the 
 	 * same element twice
@@ -53,11 +54,65 @@ public class ProblemSet1 {
 	        return result.next;
 	    }
 	 
+	 /**
+	  * Given a string, find the length of the longest substring without repeating characters.
+	  * @param s - Input String
+	  * @return - The length of longest substring
+	  * ALTERNATIVE SOLUTION IS TO USE AN ARRAY AND PUT VALUE OF COUNTER WITH ALL ELEMENTS
+	  */
+	 public int lengthLongestSubstr(String s){ 
+		 HashMap<Character, Integer > map = new HashMap<Character, Integer>();
+		 String tempLongest ="";
+		 String longest = "";
+		 int lenTemp = 0;
+		 int lenFinal =0;
+		 for(int i = 0;i<s.length();i++){
+			 char c = s.charAt(i);
+			 //check if not duplicate
+			 if(!(map.containsKey(s.charAt(i)))){
+				 map.put(c, 1);
+				 tempLongest +=c;
+				 lenTemp+=1;
+				 
+			 }else{
+				 //map = new HashMap<Character, Integer>();
+				 map.put(c, 1);
+				 int index = tempLongest.indexOf(c);
+				 tempLongest = tempLongest.substring(index+1)+c;
+				 lenTemp -=index;
+				 
+			 }if(lenTemp>lenFinal){lenFinal=lenTemp; longest=tempLongest;}
+			 
+		 }
+		 System.out.println(longest);
+		 return lenFinal;
+	 }
+	 
+	 /**
+	  * There are two sorted arrays nums1 and nums2 of size m and n respectively.
+	  * Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
+	  * @param a - First Array
+	  * @param b - Second Array
+	  * @return - The double median of both arrays
+	  */
+	 public double findMedianSortedArrays(int[] a, int[] b) {
+	        int[] c = new int[a.length+b.length];
+	        System.arraycopy(a,0,c,0,a.length);
+	        System.arraycopy(b,0,c,a.length,b.length);
+	        Arrays.sort(c);
+	        int len = c.length;
+	        double result = (len%2==0)?(double)(c[(len-1)/2]+c[((len-1)/2)+1])/2:c[len/2];
+	        return result;
+	    }
+	 
+	 
+	 
+	 
 	 
 	 
 	
 	public static void main(String[] args) {
-		ListNode l1 = new ListNode(2);
+		/*ListNode l1 = new ListNode(2);
 		l1.next=new ListNode(4);
 		l1.next.next = new ListNode(3);
 		ListNode l2 = new ListNode(5);
@@ -65,6 +120,9 @@ public class ProblemSet1 {
 		l2.next.next = new ListNode(4);
 		ListNode res = new ProblemSet1().addTwoNumbers(l1, l2);
 		System.out.println(res.val+"->"+res.next.val+"->"+res.next.next.val);
+		System.out.println(new ProblemSet1().lengthLongestSubstr("abcdebxb"));
+		int[] a = {1,3}; int[] b ={2};
+		System.out.println(new ProblemSet1().findMedianSortedArrays(a, b));*/
 
 	}
 
